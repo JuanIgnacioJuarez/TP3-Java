@@ -3,8 +3,9 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Logica {
-        //Punto 2:
+
     public static void punto2() {
+        //Punto 2:
         Scanner sc = new Scanner(System.in);
         int [] arreglo = new int[5];
         for (int i=0; i < arreglo.length; i++){
@@ -187,6 +188,65 @@ public class Logica {
         return dniToString+letraToString;
     }
 
+    public static void punto11(){
+        //Punto 11:
+        Scanner sc = new Scanner(System.in);
+        int[] array1 = new int[5];
+        System.out.println("Ingrese 5 números enteros: ");
+        for(int i = 0; i < array1.length; i++){
+            System.out.print((i + 1) + ". ");
+            array1[i] = sc.nextInt();
+        }
 
+        int[] array2 = new int[10];
+        System.out.println("Ingrese 10 números enteros: ");
+        for(int i = 0; i < array2.length; i++){
+            System.out.print((i + 1) + ". ");
+            array2[i] = sc.nextInt();
+        }
 
+        int[] array3 = new int[5];
+        for(int i = 0; i < array1.length; i++){
+            array3[i] = 0;
+            for(int j = 0; j < array2.length; j++){
+                array3[i] += array1[i] * array2[j];
+            }
+        }
+
+        System.out.println("\n");
+        System.out.println("Primer array:       " + Arrays.toString(array1));
+        System.out.println("Segundo array:      " + Arrays.toString(array2));
+        System.out.println("Resultado final:    " + Arrays.toString(array3));
+    }
+
+    public static void punto12(){
+        //Punto 12:
+        Scanner sc = new Scanner(System.in);
+        int[] array = new int[10];
+        System.out.println("Ingrese 10 números enteros: ");
+        for(int i = 0; i < array.length; i++){
+            System.out.print((i + 1) + ". ");
+            array[i] = sc.nextInt();
+        }
+
+        System.out.println(Arrays.toString(array));
+        System.out.println("Ingrese un número que desee eliminar: ");
+        int borrarnum = sc.nextInt();
+
+        int count = 0;
+        for(int i=0; i<array.length; i++){
+            if(array[i] != borrarnum){
+                count++;
+            }
+        }
+
+        int[] array2 = new int[count];
+        int index = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i] != borrarnum){
+                array2[index++] = array[i];
+            }
+        }
+        System.out.println(Arrays.toString(array2));
+    }
 }
