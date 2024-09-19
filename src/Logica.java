@@ -3,16 +3,33 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Logica {
+    
+    public static void punto1() {
+        
+        System.out.println("¿Qué sucede si tratamos de acceder un elemento fuera del tamaño del array?");
+        System.out.println("Respuesta:");
+        System.out.println("""
+                           Si se intenta acceder a un elemento fuera del rango válido de un array, 
+                           se lanzará una excepción / error: 'ArrayIndexOutOfBoundsException'. 
+                           
+                           Esto ocurre porque los índices de los arrays en Java deben estar dentro del rango de 0 a array.length - 1.
+                           
+                           Por ejemplo: un array con 3 elementos, los índices válidos son 0, 1, y 2. 
+                                        Intentar acceder a un índice fuera de estos rangos resulta en un error.
+                           """);
+    }
 
     public static void punto2() {
         //Punto 2:
         Scanner sc = new Scanner(System.in);
         int [] arreglo = new int[5];
+        System.out.println("A continuación, deberá completar un array de dimensión 5: ");
         for (int i=0; i < arreglo.length; i++){
-            System.out.println("Ingrese un número para la posición " + i);
+            System.out.println("Ingrese un número para la posición " + (i+1));
             arreglo[i] = sc.nextInt();
         }
         System.out.println("El arreglo entonces es: "+ Arrays.toString(arreglo));
+        System.out.println();
     }
 
     public static void punto3() {
@@ -27,13 +44,14 @@ public class Logica {
             arreglo[i] = num*(i+1);
         }
         System.out.println("Los múltiplos de " + num + " entonces son: "+ Arrays.toString(arreglo));
+        System.out.println();
     }
 
     public static void punto4(){
         //Punto 4:
         Scanner sc = new Scanner(System.in);
         Double[] arreglo = new Double[20];
-        System.out.println("Ingrese 20 número decimales: ");
+        System.out.println("Ingrese 20 número decimales (con coma): ");
         int i;
         double mayor = 0, menor = 0, rango;
         for (i=0; i < arreglo.length; i++ ) {
@@ -49,7 +67,10 @@ public class Logica {
             }
         }
         rango = mayor - menor;
+        System.out.println("El mayor numero de los ingresados es: " + mayor);
+        System.out.println("El menor numero de los ingresados es: " + menor);
         System.out.println("El rango entre los números " + mayor + " y " + menor + " es " + rango);
+        System.out.println();
     }
 
     public static void punto5() {
@@ -81,11 +102,13 @@ public class Logica {
                 menorAlPromedio++;
             }
         }
-        System.out.println("Array: \n"+ Arrays.toString(numeros));
+        System.out.println("Array con valores aleatorios: \n"+ Arrays.toString(numeros));
+        System.out.println();
         System.out.println("El promedio aritmetico es: " + promedioAritmetico);
         System.out.println("La cantidad de numeros igual al promedio es: " + igualAlPromedio);
         System.out.println("La cantidad de numeros mayor al promedio es: " + mayorAlPromedio);
         System.out.println("La cantidad de numeros menor al promedio es: " + menorAlPromedio);
+        System.out.println();
     }
 
     public static void punto6(){
@@ -97,7 +120,8 @@ public class Logica {
             numeros[i]= random.nextInt(100); //Se define un rango de 100 para no trabajar con numeros tan grandes.
         }
         boolean encontrado = false;
-        System.out.println("Array: "+Arrays.toString(numeros));
+        System.out.println("Array aleatorio: \n"+Arrays.toString(numeros));
+        System.out.println();
         System.out.println("Ingrese el valor que desea buscar: ");
         int valor = sc.nextInt();
         for(int i = 0; i< numeros.length;i++){
@@ -111,6 +135,7 @@ public class Logica {
         if(!encontrado){
             System.out.println("El valor "+valor+" no esta en el array.");
         }
+        System.out.println();
     }
 
     public static void punto7(){
@@ -119,8 +144,9 @@ public class Logica {
         int [] numeros = new int[20];
         int sumaPar=0;
         int sumaImar=0;
+        System.out.println("Se necesita que ingrese 20 numeros enteros para realizar la operación: ");
         for(int i = 0; i<numeros.length; i++){
-            System.out.println("Ingrese el "+(i+1)+"° numero entero: ");
+            System.out.println((i+1)+"° numero entero: ");
             numeros[i]=sc.nextInt();
             if(numeros[i]%2==0){
                 sumaPar+=numeros[i];
@@ -128,9 +154,12 @@ public class Logica {
                 sumaImar+=numeros[i];
             }
         }
+        System.out.println();
         System.out.println("Array: "+Arrays.toString(numeros));
+        System.out.println();
         System.out.println("La suma de los numeros pares es: "+sumaPar);
         System.out.println("La suma de los numeros impares es: "+sumaImar);
+        System.out.println();
     }
 
     public static void punto8(){
@@ -138,11 +167,14 @@ public class Logica {
         Scanner sc = new Scanner(System.in);
         int dim = 10;
         int [] numeros = new int[dim];
+        System.out.println("Ingrese 10 numeros enteros para completar el array: ");
         for(int i = 0; i<numeros.length; i++) {
-            System.out.println("Ingrese el " + (i + 1) + "° numero entero: ");
+            System.out.println((i + 1) + "° numero entero: ");
             numeros[i] = sc.nextInt();
         }
+        System.out.println();
         System.out.println("Array original: "+Arrays.toString(numeros));
+        System.out.println();
         Arrays.sort(numeros);
         int [] descendentes = new int[dim];
         int [] ascendentes;
@@ -150,8 +182,12 @@ public class Logica {
         for(int i=0; i<numeros.length; i++){
             descendentes[(dim-1)-i] = numeros[i];
         }
+        System.out.println("FORMA ASCENDENTE: ");
         System.out.println(Arrays.toString(ascendentes));
+        System.out.println();
+        System.out.println("FORMA DESCENDENTE: ");
         System.out.println(Arrays.toString(descendentes));
+        System.out.println();
     }
 
     public static void punto9() {
@@ -168,8 +204,12 @@ public class Logica {
             suma+=numerosInt[i];
         }
         promedio=suma/numerosInt.length;
+        System.out.println();
+        System.out.println(Arrays.toString(numerosStr));
+        System.out.println();
         System.out.println("La suma total es: "+suma+"\n"+
                            "El promedio es: "+promedio);
+        System.out.println();
     }
 
     public static void punto10(){
@@ -180,8 +220,10 @@ public class Logica {
         int resto = (int) dni%23;
         String dniToString = String.valueOf(dni);
         String dniConLetra = buscarLetraP10(resto, letras, dniToString);
-        System.out.println(dniConLetra);
+        System.out.println("DNI con letra: " + dniConLetra);
+        System.out.println();
     }
+    
     public static String buscarLetraP10 (int resto, char[]letras, String dniToString){
         char letra = letras[resto];
         String letraToString = String.valueOf(letra);
@@ -191,15 +233,19 @@ public class Logica {
     public static void punto11(){
         //Punto 11:
         Scanner sc = new Scanner(System.in);
+        System.out.println("""
+                           Vamos a calcular la sumatoria de la multiplicación de cada elemento 
+                           del array 1 por cada elemento del array 2 
+                           """);
         int[] array1 = new int[5];
-        System.out.println("Ingrese 5 números enteros: ");
+        System.out.println("Ingrese 5 números enteros para el primer arreglo: ");
         for(int i = 0; i < array1.length; i++){
             System.out.print((i + 1) + ". ");
             array1[i] = sc.nextInt();
         }
 
         int[] array2 = new int[10];
-        System.out.println("Ingrese 10 números enteros: ");
+        System.out.println("Ingrese 10 números enteros para el segundo arreglo: ");
         for(int i = 0; i < array2.length; i++){
             System.out.print((i + 1) + ". ");
             array2[i] = sc.nextInt();
@@ -213,23 +259,26 @@ public class Logica {
             }
         }
 
-        System.out.println("\n");
+        System.out.println();
         System.out.println("Primer array:       " + Arrays.toString(array1));
         System.out.println("Segundo array:      " + Arrays.toString(array2));
         System.out.println("Resultado final:    " + Arrays.toString(array3));
+        System.out.println();
     }
 
     public static void punto12(){
         //Punto 12:
         Scanner sc = new Scanner(System.in);
         int[] array = new int[10];
-        System.out.println("Ingrese 10 números enteros: ");
+        System.out.println("Ingrese 10 números enteros para completar el array: ");
         for(int i = 0; i < array.length; i++){
             System.out.print((i + 1) + ". ");
             array[i] = sc.nextInt();
         }
 
+        System.out.println();
         System.out.println(Arrays.toString(array));
+        System.out.println();
         System.out.println("Ingrese un número que desee eliminar: ");
         int borrarnum = sc.nextInt();
 
@@ -247,6 +296,8 @@ public class Logica {
                 array2[index++] = array[i];
             }
         }
+        System.out.println("Eliminando el numero "+borrarnum+ " queda un nuevo arreglo: ");
         System.out.println(Arrays.toString(array2));
+        System.out.println();
     }
 }
